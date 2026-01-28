@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  @apply bg-primary text-white overflow-x-hidden;
+  /* Removed fixed background-attachment to fix lag */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Outfit', sans-serif;
+}
+
+@layer components {
+  .glass-card {
+    /* Reduced blur from xl to md for performance */
+    @apply bg-surface backdrop-blur-md border border-surface-border rounded-2xl transition-all duration-300;
+  }
+
+  .glass-card:hover {
+    @apply scale-[1.01];
+    /* Slightly reduced scale factor */
+    border-color: rgba(57, 255, 20, 0.3);
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.1);
+  }
+
+  .neon-text {
+    @apply text-secondary;
+    filter: drop-shadow(0 0 8px rgba(57, 255, 20, 0.4));
+  }
+
+  .cyber-button {
+    @apply px-8 py-3 bg-secondary text-black font-bold rounded-full transition-all duration-300 active:scale-95;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cyber-button:hover {
+    @apply scale-105;
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.6);
+  }
+}
+
+/* Custom Scrollbar - Simplified for performance */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030303;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #39ff14;
+}
